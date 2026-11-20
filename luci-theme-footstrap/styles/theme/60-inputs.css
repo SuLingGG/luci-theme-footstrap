@@ -23,11 +23,14 @@
 		/* stated not inherited: this is TEXT, the control rule hands labels line-height: normal (measured 18px -> normal without this) */
 		line-height: var(--fs-leading);
 	}
-	/* mono is for VALUES: buttons, the help sentence and `<strong>` LABELS excluded — a label
-	 * fed to mono also goes bold, 227 elements/20 KB of face for nothing. theme/45-misc.css's
-	 * label rule must ASSIGN sans; excluding `<strong>` here alone still inherits mono */
+	/* Values stay in the UI face. This used to force the mono face on the field and on
+	 * everything inside it, which also reached `<option>` — a system page carried 469 mono
+	 * options and read like a terminal. Numbers still line up: tabular figures below. */
 	.cbi-value-field,
-	.cbi-value-field *:where(:not(.btn, .cbi-button, .cbi-value-description)) { font-family: var(--fs-font-mono); }
+	.cbi-value-field *:where(:not(.btn, .cbi-button, .cbi-value-description)) {
+		font-family: var(--fs-font-sans);
+		font-variant-numeric: tabular-nums;
+	}
 	.cbi-value-description { font-family: var(--fs-font-sans); text-wrap: pretty; }
 
 	/* not the generic input's fixed 210px (above): mono + padded --fs-space-3, 210px clipped a URL mid-domain (issue #5); elastic, capped to the dynlist's ceiling */

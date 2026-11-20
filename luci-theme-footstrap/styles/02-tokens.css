@@ -86,8 +86,21 @@
 		/* vertical rhythm between cards: .cbi-section, tab groups, alerts, action bars */
 		--fs-card-gap: calc(16px * var(--fs-density-space));
 
-		--fs-font-sans: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-		--fs-font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+		/* Latin: Arial only. Manrope is a preference, not a shipped font (PKG_LICENSE:
+		 * no Font Software), so Windows resolved it to Segoe UI; the first attempt at
+		 * parity named "Helvetica Neue"/Helvetica, which on Windows usually comes from
+		 * Adobe/Office and renders thin and blurry under ClearType.
+		 *
+		 * CJK: named explicitly. Arial's *generic* fallback on Windows is SimSun, which
+		 * is why part of the Chinese text looked off next to the UI face; listing the
+		 * platform CJK faces first keeps the UI font (YaHei / PingFang / Noto CJK). */
+		--fs-font-sans: Arial, "Microsoft YaHei UI", "Microsoft YaHei", "PingFang SC",
+			"Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+		/* Consolas before the generic monospaces: it ships with Windows, has proper hinting
+		 * and tabular digits; the CJK faces come last so Chinese inside a mono cell still
+		 * uses the UI face instead of SimSun. */
+		--fs-font-mono: "JetBrains Mono", Consolas, ui-monospace, SFMono-Regular, Menlo,
+			"Microsoft YaHei", monospace;
 
 		/* three multipliers, one knob each for text/air/boxes */
 		--fs-density-type: 1;
