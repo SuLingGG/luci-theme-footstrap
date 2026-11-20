@@ -86,7 +86,11 @@
 		/* vertical rhythm between cards: .cbi-section, tab groups, alerts, action bars */
 		--fs-card-gap: calc(16px * var(--fs-density-space));
 
-		--fs-font-sans: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+		/* Sans stack mirrors luci-theme-bootstrap: on Windows the previous stack resolved
+		 * to Segoe UI (Manrope is a preference, not a shipped font — see PKG_LICENSE) and
+		 * rendered noticeably off; "Helvetica Neue"/Arial is what Windows users expect
+		 * from LuCI. Latin only: CJK still falls through to the system face. */
+		--fs-font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
 		--fs-font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 
 		/* three multipliers, one knob each for text/air/boxes */
