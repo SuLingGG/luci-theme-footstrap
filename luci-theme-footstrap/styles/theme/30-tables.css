@@ -81,7 +81,10 @@
 	.cbi-section .table:is([id], .fs-dt) .td,
 	.cbi-section .table:is([id], .fs-dt) .th,
 	:is(table, div).fs-dt .td, :is(table, div).fs-dt .th { padding: var(--fs-space-2-5) var(--fs-space-3); }
-	.cbi-section .table:is([id], .fs-dt) .td { font-family: var(--fs-font-mono); font-size: var(--fs-type); color: var(--fs-text); }
+	/* Proportional, not mono: a whole id'd table in the mono face made every cell read
+	 * as code and the CJK/link glyphs fall out of the UI face. Alignment is what mono
+	 * was there for, so keep that with tabular figures instead. */
+	.cbi-section .table:is([id], .fs-dt) .td { font-variant-numeric: tabular-nums; font-size: var(--fs-type); color: var(--fs-text); }
 
 	/* the min-content FLOOR belongs here: break-word (unlike base's -anywhere) does not lower
 	 * min-content, so an overflow stays visible to fit.overflows(). :not(.fs-stacked) is the
@@ -161,7 +164,7 @@
 		color: var(--fs-dim); font-weight: var(--fs-weight); width: 40%; white-space: nowrap;
 	}
 	.cbi-section .table:not([id]):not(.cbi-section-table):not(.fs-dt):not(:has(.th)):not(:has(.td:nth-child(3))):not([style*="table-layout"]) .td:last-child:not(:first-child) {
-		font-family: var(--fs-font-mono); color: var(--fs-text); text-align: end;
+		font-variant-numeric: tabular-nums; color: var(--fs-text); text-align: end;
 	}
 	/* below ~560px the 40%/nowrap column starves the value — stacked below (560, not the config
 	 * table's 960px). :first-child:first-child doubles the pseudo-class ON PURPOSE, to outrank. */
