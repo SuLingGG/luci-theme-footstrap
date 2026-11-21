@@ -32,7 +32,11 @@
 	.cbi-progressbar::after {
 		content: attr(title);
 		position: absolute; inset-inline: auto 0; bottom: calc(100% + var(--fs-space-1)); top: auto;
-		font-family: var(--fs-font-mono); font-size: var(--fs-type-xs); font-weight: var(--fs-weight-normal);
+		/* Proportional, not mono: the value is a sentence with units in it ("1006.85 GiB /
+		 * 1006.85 GiB (100%)"), and the mono face made it read as code next to the label.
+		 * What mono was there for is digit alignment — tabular figures give that. */
+		font-family: var(--fs-font-sans); font-variant-numeric: tabular-nums;
+		font-size: var(--fs-type-xs); font-weight: var(--fs-weight-normal);
 		color: var(--fs-dim); white-space: nowrap; text-shadow: none;
 	}
 

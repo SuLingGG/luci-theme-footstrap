@@ -1,3 +1,17 @@
+## [Unreleased]
+
+### Added
+
+- **Simplified Chinese, as its own `luci-i18n-footstrap-zh-cn` package.** The catalogue covers the theme's own strings; installing it puts 简体中文 in LuCI's language list.
+
+### Changed
+
+- **The theme is built and released from this fork without owfeed.** `.github/workflows/build-packages.yml` downloads an official SDK, compiles the theme and every language package in it, and uploads them as artifacts; a `v*` tag then attaches the same files to a GitHub Release, with a `SHA256SUMS` beside them. The owfeed, Pages, e2e and anchor-mutant workflows are gone.
+
+### Fixed
+
+- **The Memory and Storage values on Status > Overview are set in the UI face, not in monospace.** A value such as `1006.85 GiB / 1006.85 GiB (100%)` read as code next to its label; the digits still line up, through tabular figures. The label now keeps 216px free for it instead of 258px, since the UI face is narrower than the mono one.
+
 ## [0.14.21] — 2026-11-13
 
 ### Fixed
