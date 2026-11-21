@@ -163,15 +163,16 @@
 	}
 	/* label — undoes key/value nowrap: a mount point is one unbreakable line past the card.
 	 * padding-inline-end is the gutter for the out-of-flow value (::after over the bar's edge): the
-	 * widest value, `1006.85 GiB / 1006.85 GiB (100%)`, is 32 glyphs of .6em mono at --fs-type, plus
-	 * a gap. A half-width cap let it run into the label; anywhere-wrap breaks a mount path instead. */
+	 * widest value, `1006.85 GiB / 1006.85 GiB (100%)`, measures 15.6em in the UI face at --fs-type
+	 * (it was 19.2em of .6em mono before the value left the mono face), plus a gap. A half-width cap
+	 * let it run into the label; anywhere-wrap breaks a mount path instead. */
 	:where(#view)[data-page="admin-status-overview"] .cbi-section .table:not(:has(.th)):not(:has(.td:nth-child(3))) .tr:has(.cbi-progressbar) .td:first-child {
 		grid-column: 1; grid-row: 1;
 		align-self: center;
 		min-width: 0;
 		white-space: normal;
 		overflow-wrap: anywhere;
-		padding-inline-end: calc(var(--fs-type) * 19.2 + var(--fs-space-2));
+		padding-inline-end: calc(var(--fs-type) * 16 + var(--fs-space-2));
 		font-size: var(--fs-type);
 	}
 
@@ -182,7 +183,7 @@
 	}
 
 	/* narrow card: the value takes its own line, the reserve above cannot fit it — docs/css-fixes.md
-	 * above has the 258px reserve and the 35rem (560px) threshold. */
+	 * above has the 216px reserve and the 35rem (560px) threshold. */
 	@container fs-view (max-width: 35rem) {
 		:where(#view)[data-page="admin-status-overview"] .cbi-section .table:not(:has(.th)):not(:has(.td:nth-child(3))) .tr:has(.cbi-progressbar) .td:first-child {
 			padding-inline-end: 0;

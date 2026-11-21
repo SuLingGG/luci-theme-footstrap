@@ -190,8 +190,10 @@ Any key/value include on this page gets the layout: label and value on one line,
 this page the same shape gets only the base `.cbi-progressbar` default.
 
 The label reserves the widest value's width and breaks a long mount path anywhere. The reserve is
-`padding-inline-end`: 32 glyphs of .6em mono at `--fs-type`, plus a gap, 258px at the default size.
-The old `min(230px, 50%)` let a 30-glyph value (235px) run under the label in a two-column layout.
+`padding-inline-end`: 16em at `--fs-type`, plus a gap, 216px at the default size. The value is set in
+the UI face with tabular figures, not in mono — `1006.85 GiB / 1006.85 GiB (100%)` measures 15.6em
+there, against 16.7em in the mono face it used to take. The old `min(230px, 50%)` let a 30-glyph
+value (235px) run under the label in a two-column layout.
 
 Below 35rem (560px) the reserve no longer fits. The label then takes the whole line and the bar
 drops below it.
