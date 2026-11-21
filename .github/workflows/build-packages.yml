@@ -205,7 +205,26 @@ jobs:
           echo "tag=$tag" >> "$GITHUB_OUTPUT"
           echo "版本 $ver，tag $tag"
 
+      - name: 检查 CHANGELOG 是否已切版本
+        # 取到的版本号是「最新已发布版本」，而 [Unreleased] 里可能还压着没发的
+        # 改动。这时打出来的包内容比 tag 新，发布说明却是旧版本的——第一次跑
+        # 就撞上了：v0.14.21 的包里带着中文翻译与等宽修复，说明却是上游 0.14.21
+        # 的。有 [Unreleased] 就说明这次是开发提交，只出 artifact 不发布；
+        # 不判红，否则每次普通提交都会红一次。
+        id: cut
+        run: |
+          set -eu
+          if grep -q '^## \[Unreleased\]' CHANGELOG.md; then
+            echo "released=false" >> "$GITHUB_OUTPUT"
+            echo "CHANGELOG.md 里还有 [Unreleased]：本次是开发提交，只出 artifact。" >&2
+            echo "要发布，把 [Unreleased] 改成 '## [<新版本>] — <日期>'（CHANGELOG_ru.md 同步）再推送。" >&2
+          else
+            echo "released=true" >> "$GITHUB_OUTPUT"
+            echo "CHANGELOG 已切版本，最新一节是 ${{ steps.ver.outputs.version }}"
+          fi
+
       - name: 写校验和
+        if: steps.cut.outputs.released == 'true'
         # 包没有签名，装之前至少能核一下下载有没有坏。
         # 只编了一个 SDK 时另一种格式的 glob 不匹配，`sha256sum *.ipk *.apk` 会直接
         # 报错退出——先收集实际存在的文件，再交给 sha256sum。
@@ -223,6 +242,7 @@ jobs:
           cat SHA256SUMS
 
       - name: 生成发布说明
+        if: steps.cut.outputs.released == 'true'
         # 优先用 CHANGELOG 里这一版的小节（tools/release-notes.sh）；没有对应小节时
         # 退回 GitHub 自动生成的提交列表，而不是让发布失败。
         env:
@@ -240,6 +260,7 @@ jobs:
           fi
 
       - name: 建 Release 并挂上产物
+        if: steps.cut.outputs.released == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
           TAG: ${{ steps.ver.outputs.tag }}
