@@ -113,9 +113,12 @@ LuCI 将自动回退至 bootstrap，无需预先修改 **设计** 设置。
 
 | 触发方式 | 结果 |
 |---|---|
-| 手动运行（Actions → 编译并发布主题包 → Run workflow） | 可选 `all` / `openwrt-24.10` / `openwrt-25.12`，产物作为 artifact 上传，保留 14 天 |
-| 推送至 `main` | 同上，构建两种格式 |
-| 推送 `v*` 标签 | 先构建，随后由 `release` 作业将同一批产物发布至 GitHub Release |
+| 推送至 `main` | 构建两种格式，随后由 `release` 作业发布至 GitHub Release |
+| 手动运行（Actions → 编译并发布主题包 → Run workflow） | 可选 `all` / `openwrt-24.10` / `openwrt-25.12`；默认同样发布，取消勾选 `publish` 则只出 artifact（保留 14 天） |
+| 推送 `v*` 标签 | 以该标签为版本号构建并发布 |
+
+发布不依赖预先打标签：`release` 作业按 `CHANGELOG.md` 的最新版本号自行创建标签并发布。
+同一版本号重复构建时只更新已有 Release 的产物，不删除 Release。
 
 构建仅有一条路径：下载官方 SDK 压缩包，在其中执行
 `make package/luci-theme-footstrap/compile`。主题为 noarch，由 x86_64 SDK 构建的包可安装于
@@ -137,14 +140,8 @@ VERSION=0.14.21 sh tools/ci-sdk-build.sh /path/to/sdk /tmp/out
 
 1. 将 `CHANGELOG.md` 中的 `## [Unreleased]` 改为 `## [<版本>] — <日期>`，并同步修改
    `CHANGELOG_ru.md`（`npm run changelog` 会校验两份文件是否一致）；
-2. 提交后为该提交打标签并推送：
-
-   ```sh
-   git tag v0.14.22
-   git push fork v0.14.22
-   ```
-
-3. 工作流完成后，Release 页面将包含 `.ipk`、`.apk` 与 `SHA256SUMS`。发布说明取自
+2. 提交并推送至 `main`。工作流以该版本号构建，并自动创建 `v<版本>` 标签与 Release；
+3. Release 页面将包含 `.ipk`、`.apk` 与 `SHA256SUMS`。发布说明取自
    `CHANGELOG.md` 中对应版本的章节；若无对应章节，则使用自动生成的提交列表。
 
 ## 性能

@@ -1,7 +1,11 @@
 name: 编译并发布主题包
 
-# 一条路径：官方 SDK 里 make 一次，产物先作为 artifact 上传；打了 v* tag 时再由
-# release 作业把同一批产物挂到 GitHub Release 上。
+# 一条路径：官方 SDK 里 make 一次，产物先作为 artifact 上传，再由 release 作业
+# 挂到 GitHub Release 上。
+#
+# 发布不依赖外部打 tag：release 作业自己按 CHANGELOG 的最新版本号建 tag 并发布。
+# 之前那版要求「有人先打 v* tag」，结果 push 到 main 时 release 作业被 skipped，
+# 跑完 action 什么也没发出去。
 #
 # 这份工作流替换了上游的 build.yml（owfeed 出包）、pages.yml（Pages 预览）、
 # rerun-infra.yml 和 anchor-mutants.yml（真机 e2e 的重试与变异检查）：那套流程要求
@@ -22,6 +26,10 @@ on:
           - all
           - openwrt-24.10
           - openwrt-25.12
+      publish:
+        description: 发布到 Release（关掉只出 artifact）
+        type: boolean
+        default: true
   push:
     branches:
       - main
@@ -111,10 +119,15 @@ jobs:
         id: ver
         run: |
           set -eu
-          v=$(git describe --tags --abbrev=0 2>/dev/null | sed 's/^v//') || true
-          [ -n "${v:-}" ] || v=$(sed -n 's/^## \[\([0-9][^]]*\)\].*/\1/p' CHANGELOG.md | head -1)
+          # 规则与 release 作业完全一致，否则包内版本号与 Release tag 会对不上：
+          # 别人打的 v* tag 优先，否则取 CHANGELOG 的最新一节。
+          if [ "${GITHUB_REF_TYPE:-}" = tag ]; then
+            v="${GITHUB_REF_NAME#v}"
+          else
+            v=$(sed -n 's/^## \[\([0-9][^]]*\)\].*/\1/p' CHANGELOG.md | head -1)
+          fi
           [ -n "${v:-}" ] || {
-            echo "取不到版本号：仓库没有 tag，CHANGELOG.md 里也没有 '## [x.y.z]'" >&2
+            echo "取不到版本号：CHANGELOG.md 里没有 '## [x.y.z]'" >&2
             exit 1
           }
           echo "version=$v" >> "$GITHUB_OUTPUT"
@@ -145,21 +158,26 @@ jobs:
           if-no-files-found: error
           retention-days: 14
 
-  # 只有打了 v* tag 才发布。产物就是 build 作业上传的那批，不重编一次：
-  # 发布的东西必须和刚才验过的是同一份字节。
+  # 发布不靠外部打 tag：这里自己按 CHANGELOG 的最新版本号建 tag 并发布。
+  # 产物就是 build 作业上传的那批，不重编一次：发布的东西必须和刚才验过的是
+  # 同一份字节。
   release:
     name: 发布 Release
     needs: build
-    if: startsWith(github.ref, 'refs/tags/v')
+    # 只要 build 成功就发：push 到 main、手动触发、别人打的 tag 一视同仁。
+    # 唯一例外是手动触发时把 publish 关掉（只想看 artifact）。
+    # 之前这里写的是「只认 v* tag」，于是 push 到 main 跑完 action 什么也没发出去。
+    if: always() && needs.build.result == 'success' && (github.event_name != 'workflow_dispatch' || inputs.publish)
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     permissions:
-      # 建 release、传 asset 都要写权限；build 作业只有读权限。
+      # 建 tag、建 release、传 asset 都要写权限；build 作业只有读权限。
       contents: write
     steps:
       - name: 检出源码
         uses: actions/checkout@v4
         with:
+          # 版本号取自 CHANGELOG 与 tag，要完整历史。
           fetch-depth: 0
 
       - name: 取回产物
@@ -167,6 +185,25 @@ jobs:
         with:
           path: dist
           merge-multiple: true
+
+      - name: 定版本号与 tag
+        id: ver
+        run: |
+          set -eu
+          # 别人打的 v* tag 优先：那个 tag 就是这次要发的版本。
+          if [ "${GITHUB_REF_TYPE:-}" = tag ]; then
+            tag="$GITHUB_REF_NAME"
+            ver="${tag#v}"
+          else
+            # 否则取 CHANGELOG 的最新一节。build 作业已经用它编过包，这里必须
+            # 取到同一个值，否则 tag 与包内版本号对不上。
+            ver=$(sed -n 's/^## \[\([0-9][^]]*\)\].*/\1/p' CHANGELOG.md | head -1)
+            [ -n "$ver" ] || { echo "CHANGELOG.md 里没有 '## [x.y.z]'" >&2; exit 1; }
+            tag="v$ver"
+          fi
+          echo "version=$ver" >> "$GITHUB_OUTPUT"
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+          echo "版本 $ver，tag $tag"
 
       - name: 写校验和
         # 包没有签名，装之前至少能核一下下载有没有坏。
@@ -189,24 +226,24 @@ jobs:
         # 优先用 CHANGELOG 里这一版的小节（tools/release-notes.sh）；没有对应小节时
         # 退回 GitHub 自动生成的提交列表，而不是让发布失败。
         env:
-          TAG: ${{ github.ref_name }}
+          VER: ${{ steps.ver.outputs.version }}
         run: |
           set -eu
-          ver="${TAG#v}"
-          if sh tools/release-notes.sh "$ver" > release-notes.md 2>/dev/null; then
+          if sh tools/release-notes.sh "$VER" > release-notes.md 2>/dev/null; then
             # 脚本末尾那段 <details>Install</details> 是上游的 install.sh 一行命令。这个
             # fork 不发布 install.sh，也没有软件源，留着等于给一条装别人包的命令：整段删掉。
             sed -i '/<details><summary>Install<\/summary>/,$d' release-notes.md
-            echo "发布说明取自 CHANGELOG.md 的 [$ver] 小节"
+            echo "发布说明取自 CHANGELOG.md 的 [$VER] 小节"
           else
-            echo "CHANGELOG.md 里没有 [$ver] 小节，退回自动生成的提交列表" >&2
+            echo "CHANGELOG.md 里没有 [$VER] 小节，退回自动生成的提交列表" >&2
             rm -f release-notes.md
           fi
 
       - name: 建 Release 并挂上产物
         env:
           GH_TOKEN: ${{ github.token }}
-          TAG: ${{ github.ref_name }}
+          TAG: ${{ steps.ver.outputs.tag }}
+          VER: ${{ steps.ver.outputs.version }}
         run: |
           set -eu
           # 只编了一个 SDK 时另一种格式没有产物，glob 不匹配会让 gh 报错：先收集。
@@ -215,15 +252,19 @@ jobs:
             [ -f "$f" ] && files="$files $f"
           done
           [ -n "$files" ] || { echo "没有可发布的产物" >&2; exit 1; }
-          # 重跑同一个 tag 时 release 可能已经存在：存在就只补传产物（--clobber 覆盖同名
-          # asset），不删 release——删了会连带删掉别人已经下载过的页面。
+          # 同一个版本号再次构建（push 到 main 但没升版本）时 release 已经存在：
+          # 只补传产物，--clobber 覆盖同名 asset。不删 release——删了会连带删掉
+          # 别人已经下载过的页面。
           # shellcheck disable=SC2086 # 空格分隔的文件名列表，这里就是要它分词
           if gh release view "$TAG" >/dev/null 2>&1; then
+            echo "Release $TAG 已存在，更新产物"
             gh release upload "$TAG" $files --clobber
           elif [ -f release-notes.md ]; then
-            gh release create "$TAG" $files \
-              --title "luci-theme-footstrap ${TAG#v}" --notes-file release-notes.md
+            # tag 不存在时 gh 会自己建它，但默认指向「默认分支的最新状态」而不是本次
+            # 构建的提交——显式 --target，发布的必须就是刚验过的那份源码。
+            gh release create "$TAG" $files --target "$GITHUB_SHA" \
+              --title "luci-theme-footstrap $VER" --notes-file release-notes.md
           else
-            gh release create "$TAG" $files \
-              --title "luci-theme-footstrap ${TAG#v}" --generate-notes
+            gh release create "$TAG" $files --target "$GITHUB_SHA" \
+              --title "luci-theme-footstrap $VER" --generate-notes
           fi
