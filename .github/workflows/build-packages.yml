@@ -1,0 +1,146 @@
+name: 编译主题包
+
+# 出包只有一条路径：官方 SDK 里 make 一次，产物作为 artifact 上传。
+#
+# 这份工作流替换了原来的 build.yml（owfeed 出包）、pages.yml（Pages 预览）、
+# rerun-infra.yml 和 anchor-mutants.yml（真机 e2e 的重试与变异检查）：那套流程
+# 要求仓库里有 tag、有上一个 release、还要在 runner 里起 qemu 路由器，与
+# 「把汉化主题编成 ipk/apk」无关，在这个 fork 上只会红。
+#
+# 只需要选一个 SDK：24.10 走 opkg（ipk），25.12 走 apk。主题包是 noarch，
+# 一份 x86_64 SDK 编出来的包在任何架构上都能装，所以没有架构矩阵。
+
+on:
+  workflow_dispatch:
+    inputs:
+      sdk:
+        description: SDK 版本（决定包格式：24.10 出 ipk，25.12 出 apk）
+        type: choice
+        default: all
+        options:
+          - all
+          - openwrt-24.10
+          - openwrt-25.12
+  push:
+    branches:
+      - main
+    tags:
+      - 'v*'
+
+permissions:
+  contents: read
+
+# 同一分支的新提交取代旧的一次运行；手动触发与 tag 各自独立。
+concurrency:
+  group: build-packages-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  # 只维护这两行：SDK 的发布版本与压缩包名，换版本就换这里。
+  SDK_PKG_24_10: openwrt-sdk-24.10.6-x86-64_gcc-13.3.0_musl.Linux-x86_64.tar.zst
+  SDK_PKG_25_12: openwrt-sdk-25.12.6-x86-64_gcc-14.3.0_musl.Linux-x86_64.tar.zst
+
+jobs:
+  prepare:
+    name: 生成矩阵
+    runs-on: ubuntu-24.04
+    outputs:
+      matrix: ${{ steps.m.outputs.matrix }}
+    steps:
+      - name: 按选择筛出 SDK
+        id: m
+        env:
+          SDK: ${{ inputs.sdk || 'all' }}
+        run: |
+          set -eu
+          case "$SDK" in
+            all)
+              matrix='{"include":[{"sdk":"openwrt-24.10","ext":"ipk"},{"sdk":"openwrt-25.12","ext":"apk"}]}' ;;
+            openwrt-24.10)
+              matrix='{"include":[{"sdk":"openwrt-24.10","ext":"ipk"}]}' ;;
+            openwrt-25.12)
+              matrix='{"include":[{"sdk":"openwrt-25.12","ext":"apk"}]}' ;;
+            *)
+              echo "不支持的 SDK：$SDK" >&2
+              exit 1 ;;
+          esac
+          echo "matrix=$matrix" >> "$GITHUB_OUTPUT"
+
+  build:
+    name: ${{ matrix.sdk }}
+    needs: prepare
+    runs-on: ubuntu-24.04
+    # 下 SDK 是几百 MB、feeds 还要在 runner 里 clone 一次；卡住时宁可失败，
+    # 也不要挂满默认的六小时。
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.prepare.outputs.matrix) }}
+    steps:
+      - name: 检出源码
+        uses: actions/checkout@v4
+        with:
+          # 版本号优先取最近的 tag；没有 tag 就退回 CHANGELOG 的最新一节。
+          fetch-depth: 0
+
+      - name: 下载并解开 SDK
+        env:
+          SDK: ${{ matrix.sdk }}
+        run: |
+          set -eu
+          case "$SDK" in
+            openwrt-24.10) pkg="$SDK_PKG_24_10" ;;
+            openwrt-25.12) pkg="$SDK_PKG_25_12" ;;
+            *) echo "不支持的 SDK：$SDK" >&2; exit 1 ;;
+          esac
+          # 发布版本就是压缩包名里的那一段，不再单独维护一份。
+          rel=$(printf '%s' "$pkg" | sed -n 's/^openwrt-sdk-\([0-9][0-9.]*\)-.*/\1/p')
+          url="https://downloads.openwrt.org/releases/$rel/targets/x86/64/$pkg"
+          # tar --zstd 要 zstd 这个可执行文件；runner 镜像里通常有，没有就装。
+          command -v zstd >/dev/null || {
+            sudo apt-get update -qq
+            sudo apt-get install -y -qq zstd
+          }
+          mkdir -p "$RUNNER_TEMP/sdk"
+          curl -fL --retry 3 --retry-delay 5 -o "$RUNNER_TEMP/sdk.tar.zst" "$url"
+          tar --zstd -xf "$RUNNER_TEMP/sdk.tar.zst" -C "$RUNNER_TEMP/sdk" --strip-components=1
+          rm -f "$RUNNER_TEMP/sdk.tar.zst"
+
+      - name: 取版本号
+        id: ver
+        run: |
+          set -eu
+          v=$(git describe --tags --abbrev=0 2>/dev/null | sed 's/^v//') || true
+          [ -n "${v:-}" ] || v=$(sed -n 's/^## \[\([0-9][^]]*\)\].*/\1/p' CHANGELOG.md | head -1)
+          [ -n "${v:-}" ] || {
+            echo "取不到版本号：仓库没有 tag，CHANGELOG.md 里也没有 '## [x.y.z]'" >&2
+            exit 1
+          }
+          echo "version=$v" >> "$GITHUB_OUTPUT"
+          echo "版本号 $v"
+
+      - name: 在 SDK 里编译
+        env:
+          VERSION: ${{ steps.ver.outputs.version }}
+        run: sh tools/ci-sdk-build.sh "$RUNNER_TEMP/sdk" "$PWD/dist"
+
+      - name: 检查产物
+        # 这轮改动的重点：语言包没编出来时构建本身不报错，只会安静地少一个包。
+        # 宁可在上传前红一次。
+        run: |
+          set -eu
+          ls -lah dist
+          for want in luci-theme-footstrap luci-i18n-footstrap-zh-cn; do
+            ls dist/"$want"[_-]* >/dev/null 2>&1 || {
+              echo "没有编出 $want 包" >&2
+              exit 1
+            }
+          done
+
+      - name: 上传产物
+        uses: actions/upload-artifact@v4
+        with:
+          name: luci-theme-footstrap-${{ matrix.sdk }}
+          path: dist/*.${{ matrix.ext }}
+          if-no-files-found: error
+          retention-days: 14

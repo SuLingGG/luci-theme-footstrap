@@ -148,10 +148,21 @@ chmod +x "$DIST/scripts/"*
 # that puts the language in LuCI's menu. The label is copied from luci.mk's LUCI_LANG.<code>
 # table; a language with no entry stops the build. Adding a language means touching this table, po/
 # and owfeed.yml together.
+# luci.mk's LUCI_LC_ALIAS: the po directory carries the language, the package name and the .lmo
+# suffix carry its BCP 47 tag (zh_Hans -> zh-cn). A language with no alias is its own code.
+lang_code() {
+	case "$1" in
+		zh_Hans) echo zh-cn ;;
+		zh_Hant) echo zh-tw ;;
+		*) echo "$1" ;;
+	esac
+}
+
 lang_name() {			# <code> -> the label LuCI shows
 	case "$1" in
 		es) echo 'Español (Spanish)' ;;
 		ru) echo 'Русский (Russian)' ;;
+		zh_Hans) echo '简体中文 (Simplified Chinese)' ;;
 		*)  echo '' ;;
 	esac
 }
@@ -160,16 +171,17 @@ for po in "$SRC"/po/*/; do
 	lang=$(basename "$po")
 	[ "$lang" = templates ] && continue
 	[ -n "$(find "$po" -maxdepth 1 -name '*.po' -print -quit)" ] || continue
+	code=$(lang_code "$lang")
 	label=$(lang_name "$lang")
 	[ -n "$label" ] || {
 		echo "stage: po/$lang has no label in lang_name() — add LuCI's own LUCI_LANG.$lang" >&2
 		exit 1
 	}
-	mkdir -p "$DIST/po-$lang/$lang" "$DIST/i18n-$lang/etc/uci-defaults"
-	cp "$po"*.po "$DIST/po-$lang/$lang/"
+	mkdir -p "$DIST/po-$code/$code" "$DIST/i18n-$code/etc/uci-defaults"
+	cp "$po"*.po "$DIST/po-$code/$code/"
 	printf "uci set luci.languages.%s='%s'; uci commit luci\n" \
-		"$(echo "$lang" | tr - _)" "$label" \
-		> "$DIST/i18n-$lang/etc/uci-defaults/luci-i18n-footstrap-$lang"
+		"$(echo "$code" | tr - _)" "$label" \
+		> "$DIST/i18n-$code/etc/uci-defaults/luci-i18n-footstrap-$code"
 done
 
 # uhttpd answers 403 on a file that is not world-readable, and owfeed copies modes from disk: a

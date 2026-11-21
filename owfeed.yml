@@ -167,3 +167,20 @@ packages:
       basename: footstrap
     # see luci-i18n-footstrap-ru above
     install-if: [ "luci-theme-footstrap={version}", "luci-i18n-base-es" ]
+
+  - name: luci-i18n-footstrap-zh-cn
+    build: mkpkg
+    arch: noarch
+    version-from: file:./dist/VERSION
+    files: ./dist/i18n-zh-cn
+    compression: zopfli
+    description: "Footstrap theme - Simplified Chinese translation"
+    depends: [luci-theme-footstrap]
+    license: Apache-2.0
+    url: https://github.com/VizzleTF/luci-theme-footstrap
+    maintainer: "Ivan Kvashonkin <vizzlef@gmail.com>"
+    i18n:
+      from: ./dist/po-zh-cn
+      basename: footstrap
+    # see luci-i18n-footstrap-ru above
+    install-if: [ "luci-theme-footstrap={version}", "luci-i18n-base-zh-cn" ]
