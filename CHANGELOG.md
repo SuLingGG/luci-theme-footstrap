@@ -6,6 +6,8 @@
 
 ### Fixed
 
+- **A table pinned to Table scrolls sideways without pinning its first column or dropping its header.** It reused the scroll treatment meant for a header-less table, which pins the first cell (right when that cell is the row's name, wrong when it is a long IPv6 address) and re-anchored the header's sticky offset to the table's own box, pushing the header down by the height of the bar.
+
 - **A carded table no longer repeats a column's sort arrows in every row.** The card prints the column heading above each value, and it copied the heading's text including the arrows a sortable header carries. A heading's `aria-hidden` parts are now left out of that copy.
 
 ## [0.14.22] — 2026-11-21

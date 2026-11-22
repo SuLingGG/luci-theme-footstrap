@@ -364,22 +364,25 @@ function fitTables() {
 			t.classList.toggle('fs-stacked', mode === 'card');
 			t.classList.remove('fs-drop-xs');
 			if (t._fsBreakCol > -1) markBreakColumn(t, t.querySelectorAll('.tr'), -1);
-			/* `table` scrolls only where it actually overflows: .fs-xscroll is display:block, and
-			 * a table that fits should keep its own box. A carded table never scrolls. While the
+			/* `table` scrolls only where it actually overflows. Its own class, not .fs-xscroll: that
+			 * one pins the first column (right for a header-less table whose first cell is the row's
+			 * name, wrong for a data table — a long IPv6 address would eat the viewport) and sets
+			 * display:block, which re-anchors the header's sticky `top` to the table's own scroll box
+			 * and pushes the header down by the bar height. A carded table never scrolls. While the
 			 * page is scrolling the measurement is deferred, so the class is left as it was. */
 			if (!fit.scrolling()) {
 				const scroll = (mode === 'table') && fit.overflows(t);
-				if (scroll !== t.classList.contains('fs-xscroll')) {
-					t.classList.toggle('fs-xscroll', scroll);
+				if (scroll !== t.classList.contains('fs-pinned-scroll')) {
+					t.classList.toggle('fs-pinned-scroll', scroll);
 					if (scroll) reach(t);
 					else unreach(t);
 				}
 			}
 			return;
 		}
-		if (t.classList.contains('fs-xscroll')) {
+		if (t.classList.contains('fs-pinned-scroll')) {
 			/* back to `auto`: the sideways scroll was the axis's, not a measurement's */
-			t.classList.remove('fs-xscroll');
+			t.classList.remove('fs-pinned-scroll');
 			unreach(t);
 		}
 		if (fit.scrolling() && t.classList.contains('fs-fitted')) {
