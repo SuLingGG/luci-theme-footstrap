@@ -351,6 +351,17 @@ function build() {
 			[ 'large',   _('Large', 'footstrap') ]
 		], bump(axes.density.apply), label)),
 
+		/* Whether a data table that does not fit becomes cards. Auto is the measurement; the two
+		 * pinned values exist because a page can end up with both forms at once, which reads as a
+		 * bug. `table` scrolls sideways instead of carding. */
+		group(_('Tables', 'footstrap'), (label) => segCtl(axes.tables.current(), [
+			[ 'auto',  _('Auto', 'footstrap') ],
+			[ 'table', _('Table', 'footstrap') ],
+			[ 'card',  _('Cards', 'footstrap') ]
+		], bump(axes.tables.apply), label), {
+			desc: _('Auto turns a table into cards when it does not fit. Table keeps it and scrolls sideways.', 'footstrap')
+		}),
+
 		/* a share of the browser's own font size; `live: false` because the page grows under the
 		 * pointer, as with Content width */
 		group(_('Text size', 'footstrap'),

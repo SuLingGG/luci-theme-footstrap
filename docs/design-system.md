@@ -480,7 +480,7 @@ The page groups them in four tabs, LuCI's own `ui.tabs`, with the Saving card un
 | Tab | Axes |
 |---|---|
 | Colour scheme | Mode, Palette, Accent |
-| Interface | Layout, Submenus, Density, Text size, Content width, Rounding |
+| Interface | Layout, Submenus, Density, Tables, Text size, Content width, Rounding |
 | Background | Tint and its strength, Wallpaper, Pattern and its three axes, File and Dim, then Transparency (Card opacity, Menu opacity, Material, Blur), shown only under a wallpaper |
 | Colours | Good, Warning, Danger and the four surface axes |
 
@@ -494,6 +494,7 @@ One row per axis. The sections after the table explain the axes that need more t
 | Mode | auto / light / dark | `fs-darkmode` | `data-darkmode` + `data-theme` + `data-bs-theme` |
 | Palette | footstrap / hicontrast / bootstrap / 2020 / forum | `fs-palette` | `data-palette` |
 | Density | compact / normal / large | `fs-density` | `data-density` |
+| Tables | auto (default) / table / card | `fs-tables` | `data-tables` |
 | Wallpaper | off / pattern / file | `fs-wallpaper` | `data-wallpaper` |
 | Tint | off, hue 1–360°, `#rrggbb` | `fs-tint` | `data-tint=hue\|hex`, `--fs-tint-h` / `--fs-bg` |
 | Tint strength | 0–200%, default 100 | `fs-tint-strength` | `--fs-tint-strength` |
@@ -521,6 +522,22 @@ Content width (issue #44) writes a px length onto `--fs-content-max`.
   `--fs-content-min` stays out of reach.
 - 3840 stands for "uncapped".
 - The slider steps by 40px.
+
+### Tables
+
+Tables decides whether a data table that does not fit becomes cards.
+
+- `auto` is the measurement: the ladder in `fs-select.js` drops expendable columns, shreds the
+  widest breakable one, and cards the table when nothing else fits.
+- `table` pins the table and lets it scroll sideways, which is the `.fs-xscroll` treatment a
+  header-less table already gets. The scroll box is only added where the table actually overflows,
+  so a table that fits keeps its own box.
+- `card` pins the cards.
+
+The axis exists because the ladder decides per table, and a page can end up with both forms at
+once, which reads as a bug rather than as a response to the room. A pinned mode skips the ladder
+entirely and clears the per-slot cache, so switching back to `auto` re-measures instead of
+replaying a decision taken in another mode.
 
 ### Text size
 

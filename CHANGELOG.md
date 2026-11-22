@@ -1,3 +1,13 @@
+## [Unreleased]
+
+### Added
+
+- **Appearance > Interface has a Tables axis: Auto, Table or Cards.** Auto keeps the measurement that turns a table into cards when it does not fit. Table keeps the table and lets it scroll sideways, and Cards pins the cards. The axis exists because the measurement decides per table, so one page could show both forms at once.
+
+### Fixed
+
+- **A carded table no longer repeats a column's sort arrows in every row.** The card prints the column heading above each value, and it copied the heading's text including the arrows a sortable header carries. A heading's `aria-hidden` parts are now left out of that copy.
+
 ## [0.14.22] — 2026-11-21
 
 ### Added
