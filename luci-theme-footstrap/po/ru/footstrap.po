@@ -12,12 +12,12 @@ msgctxt "footstrap"
 msgid "Accent"
 msgstr "Акцент"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:493
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:483
 msgctxt "footstrap"
 msgid "Acrylic"
 msgstr "Акрил"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:410
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:400
 msgctxt "footstrap"
 msgid "As in file"
 msgstr "Как в файле"
@@ -27,7 +27,6 @@ msgid "Authorization Required"
 msgstr "Требуется авторизация"
 
 #: htdocs/luci-static/resources/view/footstrap/appearance.js:312
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:357
 msgctxt "footstrap"
 msgid "Auto"
 msgstr "Авто"
@@ -37,7 +36,7 @@ msgctxt "footstrap"
 msgid "Auto-collapse"
 msgstr "Сворачивать"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:499
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:489
 msgctxt "footstrap"
 msgid "Background"
 msgstr "Фон"
@@ -47,12 +46,12 @@ msgctxt "footstrap"
 msgid "Barely visible %s"
 msgstr "Едва заметна %s"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:495
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:485
 msgctxt "footstrap"
 msgid "Blur"
 msgstr "Размытие"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:539
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:529
 msgctxt "footstrap"
 msgid "Borders"
 msgstr "Границы"
@@ -65,23 +64,22 @@ msgstr "Буферизовано"
 msgid "Cached"
 msgstr "Кэшировано"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:484
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:474
 msgctxt "footstrap"
 msgid "Card opacity"
 msgstr "Непрозрачность карточек"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:359
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:536
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:526
 msgctxt "footstrap"
 msgid "Cards"
 msgstr "Карточки"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:396
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:386
 msgctxt "footstrap"
 msgid "Choose SVG"
 msgstr "Выбрать SVG"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:389
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:379
 msgctxt "footstrap"
 msgid "Choose image"
 msgstr "Выбрать изображение"
@@ -105,13 +103,13 @@ msgctxt "footstrap"
 msgid "Colour scheme"
 msgstr "Цветовая схема"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:408
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:660
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:398
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:650
 msgctxt "footstrap"
 msgid "Colours"
 msgstr "Цвета"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:503
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:493
 msgctxt "footstrap"
 msgid "Colours the page so you can tell routers apart."
 msgstr "Окрашивает страницу, чтобы различать роутеры."
@@ -121,12 +119,12 @@ msgctxt "footstrap"
 msgid "Compact"
 msgstr "Компактно"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:611
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:601
 msgctxt "footstrap"
 msgid "Confirm reset"
 msgstr "Подтвердить сброс"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:372
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:362
 msgctxt "footstrap"
 msgid "Content width"
 msgstr "Ширина контента"
@@ -136,7 +134,7 @@ msgctxt "footstrap"
 msgid "Contrast %s:1 (WCAG AA wants %s:1 here)"
 msgstr "Контраст %s:1 (WCAG AA требует здесь %s:1)"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:537
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:527
 msgctxt "footstrap"
 msgid "Controls"
 msgstr "Элементы форм"
@@ -146,12 +144,12 @@ msgctxt "footstrap"
 msgid "Could not process the image."
 msgstr "Не удалось обработать изображение."
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:585
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:575
 msgctxt "footstrap"
 msgid "Could not save to the router. Reload the page and try again."
 msgstr "Не удалось сохранить на роутер. Обновите страницу и повторите."
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:531
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:521
 msgctxt "footstrap"
 msgid "Danger"
 msgstr "Опасность"
@@ -166,7 +164,7 @@ msgctxt "footstrap"
 msgid "Density"
 msgstr "Плотность"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:418
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:408
 msgctxt "footstrap"
 msgid "Dim"
 msgstr "Затемнение"
@@ -175,13 +173,13 @@ msgstr "Затемнение"
 msgid "Expand menu"
 msgstr "Развернуть меню"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:415
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:516
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:405
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:506
 msgctxt "footstrap"
 msgid "File"
 msgstr "Файл"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:491
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:481
 msgctxt "footstrap"
 msgid "Flat"
 msgstr "Плоский"
@@ -197,7 +195,7 @@ msgctxt "footstrap"
 msgid "Footstrap needs OpenWrt 24.10.3 or newer."
 msgstr "Footstrap требует OpenWrt 24.10.3 или новее."
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:639
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:629
 msgctxt "footstrap"
 msgid ""
 "Footstrap theme settings apply at once and are stored permanently in this "
@@ -214,7 +212,7 @@ msgstr ""
 "Настройки темы Footstrap, сохранённые на роутере, загрузка фона входа и "
 "узора, а также страница настроек Footstrap"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:492
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:482
 msgctxt "footstrap"
 msgid "Frosted"
 msgstr "Матовый"
@@ -227,7 +225,7 @@ msgstr "Перейти к обновлению прошивки..."
 msgid "Go to password configuration..."
 msgstr "Перейти к настройке пароля..."
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:529
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:519
 msgctxt "footstrap"
 msgid "Good"
 msgstr "Норма"
@@ -261,7 +259,7 @@ msgid "Large"
 msgstr "Крупно"
 
 #: htdocs/luci-static/resources/view/footstrap/appearance.js:335
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:632
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:622
 msgctxt "footstrap"
 msgid "Layout"
 msgstr "Раскладка"
@@ -284,7 +282,7 @@ msgstr "Выйти"
 msgid "Lua compatibility mode active"
 msgstr "Включён режим совместимости с Lua"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:490
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:480
 msgctxt "footstrap"
 msgid "Material"
 msgstr "Материал"
@@ -298,7 +296,7 @@ msgstr "Память"
 msgid "Menu"
 msgstr "Меню"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:488
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:478
 msgctxt "footstrap"
 msgid "Menu opacity"
 msgstr "Непрозрачность меню"
@@ -307,11 +305,6 @@ msgstr "Непрозрачность меню"
 msgctxt "footstrap"
 msgid "Mode"
 msgstr "Режим"
-
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:356
-msgctxt "footstrap"
-msgid "Narrow screens"
-msgstr "Узкие экраны"
 
 #: ucode/template/themes/footstrap/header.ut:203
 msgid ""
@@ -335,21 +328,10 @@ msgctxt "footstrap"
 msgid "Normal"
 msgstr "Обычно"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:514
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:504
 msgctxt "footstrap"
 msgid "Off"
 msgstr "Выкл."
-
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:361
-msgctxt "footstrap"
-msgid ""
-"Only below 768px: Auto measures, Table keeps the table and scrolls sideways, "
-"Cards always cards it. Wider screens show the table."
-msgstr ""
-"Только на экранах уже 768px: «Авто» измеряет, «Таблица» оставляет "
-"таблицу и разрешает горизонтальную прокрутку, «Карточки» всегда "
-"показывают карточки. На более широких экранах таблица показывается "
-"всегда."
 
 #: htdocs/luci-static/resources/fs-search.js:147
 msgctxt "footstrap"
@@ -366,8 +348,8 @@ msgstr "Палитра"
 msgid "Password"
 msgstr "Пароль"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:403
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:515
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:393
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:505
 msgctxt "footstrap"
 msgid "Pattern"
 msgstr "Узор"
@@ -387,44 +369,44 @@ msgctxt "footstrap"
 msgid "Recently visited"
 msgstr "Недавние"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:384
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:374
 msgctxt "footstrap"
 msgid "Remove"
 msgstr "Убрать"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:550
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:540
 msgctxt "footstrap"
 msgid "Reset to built-in"
 msgstr "Сбросить к встроенному"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:645
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:635
 msgctxt "footstrap"
 msgid "Reset to built-in — go back to the look the theme ships with."
 msgstr "«Сбросить к встроенному» — вернуть вид, с которым поставляется тема."
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:549
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:539
 msgctxt "footstrap"
 msgid "Reset to router"
 msgstr "Сбросить к виду роутера"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:644
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:634
 msgctxt "footstrap"
 msgid "Reset to router — drop this browser's changes and follow the router."
 msgstr ""
 "«Сбросить к виду роутера» — отменить правки этого браузера и следовать "
 "роутеру."
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:375
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:365
 msgctxt "footstrap"
 msgid "Rounding"
 msgstr "Скругление"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:548
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:538
 msgctxt "footstrap"
 msgid "Save to router"
 msgstr "Сохранить на роутер"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:643
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:633
 msgctxt "footstrap"
 msgid ""
 "Save to router — store this look on the router. Browsers with a look of "
@@ -433,17 +415,17 @@ msgstr ""
 "«Сохранить на роутер» — записать этот вид на роутер. Браузеры со своим видом "
 "его сохранят."
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:574
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:564
 msgctxt "footstrap"
 msgid "Saved to router"
 msgstr "Сохранено на роутере"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:638
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:628
 msgctxt "footstrap"
 msgid "Saving"
 msgstr "Сохранение"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:406
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:396
 msgctxt "footstrap"
 msgid "Scale"
 msgstr "Масштаб"
@@ -468,7 +450,7 @@ msgctxt "footstrap"
 msgid "Sidebar"
 msgstr "Сбоку"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:538
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:528
 msgctxt "footstrap"
 msgid "Sidebar and bar"
 msgstr "Боковая панель и шапка"
@@ -486,7 +468,7 @@ msgstr "Начните вводить название страницы"
 msgid "Storage"
 msgstr "Накопитель"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:407
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:397
 msgctxt "footstrap"
 msgid "Strength"
 msgstr "Насыщенность"
@@ -496,7 +478,7 @@ msgctxt "footstrap"
 msgid "Submenus"
 msgstr "Подменю"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:534
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:524
 msgctxt "footstrap"
 msgid "Surfaces"
 msgstr "Поверхности"
@@ -513,16 +495,11 @@ msgstr "Система"
 msgid "System running in recovery (initramfs) mode."
 msgstr "Система работает в режиме восстановления (initramfs)."
 
-#: htdocs/luci-static/resources/fs-select.js:505
+#: htdocs/luci-static/resources/fs-select.js:440
 msgid "Table"
 msgstr "Таблица"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:358
-msgctxt "footstrap"
-msgid "Table"
-msgstr "Таблица"
-
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:366
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:356
 msgctxt "footstrap"
 msgid "Text size"
 msgstr "Размер текста"
@@ -579,7 +556,7 @@ msgid "The system asks for more contrast, so surfaces stay solid."
 msgstr ""
 "Система просит больше контраста, поэтому поверхности остаются непрозрачными."
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:409
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:399
 msgctxt "footstrap"
 msgid "Theme"
 msgstr "Тема"
@@ -592,7 +569,7 @@ msgstr ""
 "На этом роутере не задан пароль. Установите пароль root, чтобы защитить веб-"
 "интерфейс."
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:569
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:559
 msgctxt "footstrap"
 msgid ""
 "This browser is not storing preferences (site data is blocked), so a change "
@@ -603,17 +580,17 @@ msgstr ""
 "изменение здесь действует до перезагрузки страницы. «Сохранить на роутер» по-"
 "прежнему работает и применяется ко всем браузерам."
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:634
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:624
 msgctxt "footstrap"
 msgid "This theme is not translated on this router yet."
 msgstr "Тема ещё не переведена на этом роутере."
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:501
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:491
 msgctxt "footstrap"
 msgid "Tint"
 msgstr "Оттенок"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:508
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:498
 msgctxt "footstrap"
 msgid "Tint strength"
 msgstr "Насыщенность оттенка"
@@ -632,7 +609,7 @@ msgstr "Сверху"
 msgid "Total Available"
 msgstr "Свободно"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:483
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:473
 msgctxt "footstrap"
 msgid "Transparency"
 msgstr "Прозрачность"
@@ -642,7 +619,7 @@ msgctxt "footstrap"
 msgid "Upload failed."
 msgstr "Не удалось загрузить."
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:454
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:444
 msgctxt "footstrap"
 msgid "Uploading…"
 msgstr "Загрузка…"
@@ -656,12 +633,12 @@ msgstr "Взять из палитры"
 msgid "Username"
 msgstr "Имя пользователя"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:513
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:503
 msgctxt "footstrap"
 msgid "Wallpaper"
 msgstr "Обои"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:530
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:520
 msgctxt "footstrap"
 msgid "Warning"
 msgstr "Предупреждение"
@@ -677,7 +654,7 @@ msgctxt "footstrap"
 msgid "Your own surface colours on the Colours tab override the palette."
 msgstr "Свои цвета поверхностей на вкладке «Цвета» перекрывают палитру."
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:538
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:528
 msgctxt "footstrap"
 msgid "in the sidebar"
 msgstr "в боковой панели"
@@ -687,12 +664,12 @@ msgctxt "footstrap"
 msgid "on a card"
 msgstr "на карточке"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:537
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:527
 msgctxt "footstrap"
 msgid "on a control"
 msgstr "на элементе формы"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:502
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:492
 msgctxt "footstrap"
 msgid "on the canvas"
 msgstr "на холсте"

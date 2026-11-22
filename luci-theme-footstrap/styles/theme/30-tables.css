@@ -409,29 +409,6 @@
 		scrollbar-width: thin; /* the scrollbar IS the affordance; a shadow trick shows through zebra rows */
 	}
 
-	/* the Tables axis pinned to `table`: a data table that scrolls sideways instead of carding.
-	 * Its own class, not .fs-xscroll. That one is for a header-less table and pins the first
-	 * column, which is right when the first cell is the row's name and wrong here — a long IPv6
-	 * address would eat the viewport. Its display:block also makes the table a scroll container,
-	 * and a sticky header's `top` then counts from the table's own box instead of the page, so the
-	 * header drops by the full bar height. */
-	#view .table.fs-pinned-scroll, #modal_overlay .table.fs-pinned-scroll {
-		display: block;
-		max-width: 100%;
-		overflow-x: auto;
-		overscroll-behavior-x: contain;
-		scrollbar-width: thin;
-	}
-	/* the header's bar offset belongs to the page's scrollport; inside this box it would push the
-	 * header down by that offset, so it sticks to the box's own top instead */
-	#view .table.fs-pinned-scroll :is(.tr.table-titles, .thead) .th,
-	#modal_overlay .table.fs-pinned-scroll :is(.tr.table-titles, .thead) .th { top: 0; }
-	#view .table.fs-pinned-scroll:focus-visible,
-	#modal_overlay .table.fs-pinned-scroll:focus-visible {
-		outline: 2px solid var(--fs-accent);
-		outline-offset: 2px;
-	}
-
 	/* a header-less table holding a control stacks instead of scrolling — a scroll container
 	 * would clip the popup inside; nothing here creates one, so a dropdown still escapes. */
 	.table.fs-rowstack,

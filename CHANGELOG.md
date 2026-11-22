@@ -1,3 +1,13 @@
+## [Unreleased]
+
+### Changed
+
+- **The Footstrap settings moved to the bottom of System.** They sat third from the top, between SSH-Keys and HTTP(S) Access — a theme's own settings ahead of Software, Startup and Reboot. The menu order now sorts after every other entry in System.
+
+### Removed
+
+- **The Tables axis is gone from Appearance > Interface.** appdpi handles its own tables' sideways scroll at the plugin layer, so its tables no longer card in any theme and the axis had nothing left to decide. The measurement that turns a table into cards when it does not fit, and the sideways scroll it falls back on, both stay.
+
 ## [0.14.23] — 2026-11-22
 
 ### Added

@@ -351,16 +351,6 @@ function build() {
 			[ 'large',   _('Large', 'footstrap') ]
 		], bump(axes.density.apply), label)),
 
-		/* What a data table that does not fit does on a narrow screen. Wide screens always keep the
-		 * table — they have the room — so the two pinned values are a phone answer, not a global one. */
-		group(_('Narrow screens', 'footstrap'), (label) => segCtl(axes.tables.current(), [
-			[ 'auto',  _('Auto', 'footstrap') ],
-			[ 'table', _('Table', 'footstrap') ],
-			[ 'card',  _('Cards', 'footstrap') ]
-		], bump(axes.tables.apply), label), {
-			desc: _('Only below 768px: Auto measures, Table keeps the table and scrolls sideways, Cards always cards it. Wider screens show the table.', 'footstrap')
-		}),
-
 		/* a share of the browser's own font size; `live: false` because the page grows under the
 		 * pointer, as with Content width */
 		group(_('Text size', 'footstrap'),
