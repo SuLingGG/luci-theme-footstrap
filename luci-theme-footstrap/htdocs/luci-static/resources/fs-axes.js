@@ -150,13 +150,6 @@ const WALLPAPER = listAxis('fs-wallpaper', 'data-wallpaper', WALLPAPERS, 'off');
 const DENSITIES = [ 'compact', 'large' ];	/* the two non-default values; 'normal' = bare :root */
 const DENSITY = listAxis('fs-density', 'data-density', DENSITIES, 'normal', () => fit.schedule());
 
-/* Tables: whether a data table that does not fit becomes cards. `auto` is the measurement (the
- * ladder in fs-select.js); `table` pins the table and lets it scroll sideways; `card` pins the
- * cards. Mixed forms on one page read as a bug, which is why the axis exists. Re-runs the fit
- * because the decision it overrides is taken there. */
-const TABLES = [ 'table', 'card' ];	/* the two non-default values; 'auto' = bare :root */
-const TABLE_MODE = listAxis('fs-tables', 'data-tables', TABLES, 'auto', () => fit.schedule());
-
 const TINT = colorAxis('fs-tint', 'data-tint', '--fs-tint-h', '--fs-bg');
 
 /* Accent axis: the UI accent (solid buttons, toggle knobs, sliders, focus rings, accented links)
@@ -277,7 +270,6 @@ const AXES = {
 		apply: prefs.applyAutoCollapse }, builtin: 'off' },
 	tint_strength: { key: 'fs-tint-strength', ax: TSTR, builtin: FS_TSTR_DEFAULT },
 	density: { key: 'fs-density', ax: DENSITY, builtin: 'normal' },
-	tables: { key: 'fs-tables', ax: TABLE_MODE, builtin: 'auto' },
 	photo_dim: { key: 'fs-photo-dim', ax: PDIM, builtin: FS_PDIM_DEFAULT },
 	pattern_size: { key: 'fs-pattern-size', ax: PSIZE, builtin: FS_PSIZE_DEFAULT },
 	pattern_strength: { key: 'fs-pattern-strength', ax: PSTR, builtin: FS_PSTR_DEFAULT },
@@ -354,7 +346,6 @@ return baseclass.extend({
 	palette: PALETTE,
 	wallpaper: WALLPAPER,
 	density: DENSITY,
-	tables: TABLE_MODE,
 	tint: TINT,
 	accent: ACCENT,
 	good: GOOD,

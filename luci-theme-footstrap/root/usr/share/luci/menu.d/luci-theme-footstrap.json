@@ -1,7 +1,7 @@
 {
 	"admin/system/footstrap": {
 		"title": "Footstrap",
-		"order": 3,
+		"order": 1001,
 		"action": {
 			"type": "view",
 			"path": "footstrap/appearance"
