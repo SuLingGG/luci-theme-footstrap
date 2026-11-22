@@ -198,9 +198,19 @@ function adoptMarkup(t, head) {
 /* Give every cell the column heading it will show once the table cards: the card prints
  * `attr(data-title)` above each value (theme/30-tables.css); LuCI's builders fill it and a foreign
  * table does not. */
+/* A heading's text without its decorative parts. A sort arrow marked `aria-hidden` is not part of
+ * the column's name, and a card that copied it would read "名称▴▾" on every row. The clone is only
+ * made when there is something to drop, so a plain heading costs one querySelector. */
+function titleText(c) {
+	if (!c.querySelector('[aria-hidden="true"]')) return (c.textContent || '').trim();
+	const clone = c.cloneNode(true);
+	clone.querySelectorAll('[aria-hidden="true"]').forEach((n) => n.remove());
+	return (clone.textContent || '').trim();
+}
+
 function labelCells(t, head) {
 	const rows = t.querySelectorAll('.tr, tbody tr');
-	const titles = [ ...titleRow(head).children ].map((c) => (c.textContent || '').trim());
+	const titles = [ ...titleRow(head).children ].map(titleText);
 	if (!titles.some(Boolean)) return;
 	for (const row of rows) {
 		if (row === head) continue;
@@ -295,7 +305,7 @@ function breakWidestColumn(t) {
  * table. The poll replaces these tables, so each tick repeated that and at iPhone width threw the
  * reader 612px out and back, twice per tick. So the answer is kept on the slot (the section frame)
  * and holds while column count (shapeOf) and room (roomFor) hold. */
-const _slots = new WeakMap();
+let _slots = new WeakMap();
 
 function shapeOf(t) {
 	const head = headOf(t);
@@ -324,10 +334,65 @@ function markTokenCells(t) {
 
 const OPEN_LIST = '.cbi-dropdown[open]';
 
+/* The Tables axis (Appearance -> Interface) pins what the ladder below would otherwise decide.
+ * `card` cards every data table; `table` keeps the table and lets it scroll sideways. `auto` is the
+ * measurement. Read from the attribute head.ut pre-paints, so the first pass after a reload agrees
+ * with the first frame.
+ *
+ * The pin is for narrow screens only. A desktop has room for the table, so "Cards" there would card
+ * a table that fits — the axis answers "what should a phone do", not "always". 767px is the theme's
+ * own mobile breakpoint (styles/theme/*.css); fs-fit re-runs every fitter when the viewport width
+ * moves, so crossing it re-decides without a reload. */
+const NARROW = window.matchMedia('(max-width: 767px)');
+
+const tableMode = () => {
+	if (!NARROW.matches) return 'auto';
+	const v = document.documentElement.getAttribute('data-tables');
+	return (v === 'table' || v === 'card') ? v : 'auto';
+};
+
+/* A pinned mode makes the per-slot cache meaningless: it holds the ladder's answers, and switching
+ * back to `auto` must not replay a decision taken in another mode. A WeakMap has no clear(), so the
+ * map itself is replaced — the old one is collected with the slots it held. */
+let _lastMode = 'auto';
+
 function fitTables() {
 	let cw;
+	const mode = tableMode();
+	if (mode !== _lastMode) {
+		_slots = new WeakMap();
+		_lastMode = mode;
+	}
 	document.querySelectorAll(stackables()).forEach((t) => {
 		markTokenCells(t);
+		if (mode !== 'auto') {
+			/* No ladder: the axis already answered. .fs-fitted is still required — the pre-paint
+			 * gate hides an unfitted .fs-dt, so a pinned table that skipped it would never appear. */
+			t.classList.add('fs-fitted');
+			t.classList.toggle('fs-stacked', mode === 'card');
+			t.classList.remove('fs-drop-xs');
+			if (t._fsBreakCol > -1) markBreakColumn(t, t.querySelectorAll('.tr'), -1);
+			/* `table` scrolls only where it actually overflows. Its own class, not .fs-xscroll: that
+			 * one pins the first column (right for a header-less table whose first cell is the row's
+			 * name, wrong for a data table — a long IPv6 address would eat the viewport) and sets
+			 * display:block, which re-anchors the header's sticky `top` to the table's own scroll box
+			 * and pushes the header down by the bar height. A carded table never scrolls. While the
+			 * page is scrolling the measurement is deferred, so the class is left as it was. */
+			if (!fit.scrolling()) {
+				const scroll = (mode === 'table') && fit.overflows(t);
+				if (scroll !== t.classList.contains('fs-pinned-scroll')) {
+					t.classList.toggle('fs-pinned-scroll', scroll);
+					if (scroll) reach(t);
+					else unreach(t);
+				}
+			}
+			return;
+		}
+		if (t.classList.contains('fs-pinned-scroll')) {
+			/* back to `auto`: the sideways scroll was the axis's, not a measurement's */
+			t.classList.remove('fs-pinned-scroll');
+			unreach(t);
+		}
 		if (fit.scrolling() && t.classList.contains('fs-fitted')) {
 			if (t._fsBreakCol >= 0) markBreakColumn(t, t.querySelectorAll('.tr'), t._fsBreakCol);
 			return;

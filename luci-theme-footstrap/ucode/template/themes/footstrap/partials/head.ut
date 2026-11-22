@@ -18,7 +18,8 @@
 		layout: [ 'sidebar', 'top' ], darkmode: [ 'auto', 'light', 'dark' ],
 		palette: [ 'footstrap', 'hicontrast', 'bootstrap', '2020', 'forum' ], wallpaper: [ 'off', 'pattern', 'file' ],
 		pattern_ink: [ 'theme', 'original' ], autocollapse: [ 'on', 'off' ],
-		density: [ 'compact', 'normal', 'large' ], material: [ 'flat', 'frosted', 'acrylic' ]
+		density: [ 'compact', 'normal', 'large' ], material: [ 'flat', 'frosted', 'acrylic' ],
+		tables: [ 'auto', 'table', 'card' ]
 	})
 		if (index(l, fs_defaults[k]) >= 0)
 			_sd[k] = fs_defaults[k];
@@ -193,6 +194,9 @@
 					/* Density: a pure token axis (02-tokens multiplies the type and space ladders).
 					   Normal is a bare :root. */
 					list('density', [ 'compact', 'large' ]);
+					/* Tables: auto (the measurement) | table (pinned, scrolls sideways) | card
+					   (pinned). Auto is a bare :root; fs-select.js reads the attribute. */
+					list('tables', [ 'table', 'card' ]);
 					/* Content width: how far the column may grow past the 1280px default, as a px length
 					   (the slider is continuous). */
 					num('content-width', 1280, 3840, 1280, '--fs-content-max', 'px');

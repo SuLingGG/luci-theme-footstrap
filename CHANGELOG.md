@@ -1,3 +1,15 @@
+## [Unreleased]
+
+### Added
+
+- **Appearance > Interface has a Narrow screens axis: Auto, Table or Cards.** It answers what a data table does on a narrow screen, below the theme's 767px breakpoint. Auto keeps the measurement that turns a table into cards when it does not fit; Table keeps the table and lets it scroll sideways; Cards pins the cards. Wider screens always keep the table — they have the room for it, and a card that fits reads as a bug. The axis exists because the measurement decides per table, so one page could show both forms at once.
+
+### Fixed
+
+- **A table pinned to Table scrolls sideways without pinning its first column or dropping its header.** It reused the scroll treatment meant for a header-less table, which pins the first cell (right when that cell is the row's name, wrong when it is a long IPv6 address) and re-anchored the header's sticky offset to the table's own box, pushing the header down by the height of the bar.
+
+- **A carded table no longer repeats a column's sort arrows in every row.** The card prints the column heading above each value, and it copied the heading's text including the arrows a sortable header carries. A heading's `aria-hidden` parts are now left out of that copy.
+
 ## [0.14.22] — 2026-11-21
 
 ### Added
