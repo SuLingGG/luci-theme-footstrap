@@ -16,12 +16,12 @@ msgctxt "footstrap"
 msgid "Accent"
 msgstr "Acento"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:483
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:494
 msgctxt "footstrap"
 msgid "Acrylic"
 msgstr "Acrílico"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:400
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:411
 msgctxt "footstrap"
 msgid "As in file"
 msgstr "Como en el archivo"
@@ -31,16 +31,26 @@ msgid "Authorization Required"
 msgstr "Se requiere autorización"
 
 #: htdocs/luci-static/resources/view/footstrap/appearance.js:312
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:358
 msgctxt "footstrap"
 msgid "Auto"
 msgstr "Auto"
+
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:362
+msgctxt "footstrap"
+msgid ""
+"Auto turns a table into cards when it does not fit. Table keeps it and "
+"scrolls sideways."
+msgstr ""
+"«Auto» convierte una tabla en tarjetas cuando no cabe. «Tabla» la mantiene y "
+"permite el desplazamiento horizontal."
 
 #: htdocs/luci-static/resources/view/footstrap/appearance.js:345
 msgctxt "footstrap"
 msgid "Auto-collapse"
 msgstr "Colapso automático"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:489
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:500
 msgctxt "footstrap"
 msgid "Background"
 msgstr "Fondo"
@@ -50,12 +60,12 @@ msgctxt "footstrap"
 msgid "Barely visible %s"
 msgstr "Apenas visible %s"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:485
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:496
 msgctxt "footstrap"
 msgid "Blur"
 msgstr "Desenfoque"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:529
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:540
 msgctxt "footstrap"
 msgid "Borders"
 msgstr "Bordes"
@@ -68,22 +78,23 @@ msgstr "En búfer"
 msgid "Cached"
 msgstr "En caché"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:474
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:485
 msgctxt "footstrap"
 msgid "Card opacity"
 msgstr "Opacidad de las tarjetas"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:526
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:360
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:537
 msgctxt "footstrap"
 msgid "Cards"
 msgstr "Tarjetas"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:386
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:397
 msgctxt "footstrap"
 msgid "Choose SVG"
 msgstr "Elegir SVG"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:379
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:390
 msgctxt "footstrap"
 msgid "Choose image"
 msgstr "Elegir imagen"
@@ -107,13 +118,13 @@ msgctxt "footstrap"
 msgid "Colour scheme"
 msgstr "Esquema de colores"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:398
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:650
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:409
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:661
 msgctxt "footstrap"
 msgid "Colours"
 msgstr "Colores"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:493
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:504
 msgctxt "footstrap"
 msgid "Colours the page so you can tell routers apart."
 msgstr "Colorea la página para distinguir los enrutadores."
@@ -123,12 +134,12 @@ msgctxt "footstrap"
 msgid "Compact"
 msgstr "Compacto"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:601
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:612
 msgctxt "footstrap"
 msgid "Confirm reset"
 msgstr "Confirmar restablecimiento"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:362
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:373
 msgctxt "footstrap"
 msgid "Content width"
 msgstr "Ancho del contenido"
@@ -138,7 +149,7 @@ msgctxt "footstrap"
 msgid "Contrast %s:1 (WCAG AA wants %s:1 here)"
 msgstr "Contraste %s:1 (WCAG AA exige aquí %s:1)"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:527
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:538
 msgctxt "footstrap"
 msgid "Controls"
 msgstr "Controles"
@@ -148,13 +159,13 @@ msgctxt "footstrap"
 msgid "Could not process the image."
 msgstr "No se pudo procesar la imagen."
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:575
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:586
 msgctxt "footstrap"
 msgid "Could not save to the router. Reload the page and try again."
 msgstr ""
 "No se pudo guardar en el router. Recargue la página e inténtelo de nuevo."
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:521
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:532
 msgctxt "footstrap"
 msgid "Danger"
 msgstr "Peligro"
@@ -169,7 +180,7 @@ msgctxt "footstrap"
 msgid "Density"
 msgstr "Densidad"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:408
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:419
 msgctxt "footstrap"
 msgid "Dim"
 msgstr "Oscurecimiento"
@@ -178,13 +189,13 @@ msgstr "Oscurecimiento"
 msgid "Expand menu"
 msgstr "Expandir menú"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:405
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:506
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:416
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:517
 msgctxt "footstrap"
 msgid "File"
 msgstr "Archivo"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:481
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:492
 msgctxt "footstrap"
 msgid "Flat"
 msgstr "Plano"
@@ -200,7 +211,7 @@ msgctxt "footstrap"
 msgid "Footstrap needs OpenWrt 24.10.3 or newer."
 msgstr "Footstrap requiere OpenWrt 24.10.3 o posterior."
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:629
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:640
 msgctxt "footstrap"
 msgid ""
 "Footstrap theme settings apply at once and are stored permanently in this "
@@ -217,7 +228,7 @@ msgstr ""
 "Los ajustes del tema Footstrap guardados en el router, la carga del fondo de "
 "inicio de sesión y del patrón, y la página de ajustes de Footstrap"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:482
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:493
 msgctxt "footstrap"
 msgid "Frosted"
 msgstr "Esmerilado"
@@ -230,7 +241,7 @@ msgstr "Ir a la actualización del firmware..."
 msgid "Go to password configuration..."
 msgstr "Ir a la configuración de contraseñas..."
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:519
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:530
 msgctxt "footstrap"
 msgid "Good"
 msgstr "Correcto"
@@ -264,7 +275,7 @@ msgid "Large"
 msgstr "Grande"
 
 #: htdocs/luci-static/resources/view/footstrap/appearance.js:335
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:622
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:633
 msgctxt "footstrap"
 msgid "Layout"
 msgstr "Diseño"
@@ -287,7 +298,7 @@ msgstr "Cerrar sesión"
 msgid "Lua compatibility mode active"
 msgstr "Modo de compatibilidad Lua activo"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:480
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:491
 msgctxt "footstrap"
 msgid "Material"
 msgstr "Material"
@@ -301,7 +312,7 @@ msgstr "Memoria"
 msgid "Menu"
 msgstr "Menú"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:478
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:489
 msgctxt "footstrap"
 msgid "Menu opacity"
 msgstr "Opacidad del menú"
@@ -334,7 +345,7 @@ msgctxt "footstrap"
 msgid "Normal"
 msgstr "Normal"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:504
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:515
 msgctxt "footstrap"
 msgid "Off"
 msgstr "Apagado"
@@ -354,8 +365,8 @@ msgstr "Paleta"
 msgid "Password"
 msgstr "Contraseña"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:393
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:505
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:404
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:516
 msgctxt "footstrap"
 msgid "Pattern"
 msgstr "Patrón"
@@ -375,46 +386,46 @@ msgctxt "footstrap"
 msgid "Recently visited"
 msgstr "Visitado recientemente"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:374
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:385
 msgctxt "footstrap"
 msgid "Remove"
 msgstr "Eliminar"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:540
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:551
 msgctxt "footstrap"
 msgid "Reset to built-in"
 msgstr "Restablecer al integrado"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:635
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:646
 msgctxt "footstrap"
 msgid "Reset to built-in — go back to the look the theme ships with."
 msgstr ""
 "«Restablecer al integrado»: vuelve al aspecto con el que se distribuye el "
 "tema."
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:539
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:550
 msgctxt "footstrap"
 msgid "Reset to router"
 msgstr "Restablecer al del router"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:634
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:645
 msgctxt "footstrap"
 msgid "Reset to router — drop this browser's changes and follow the router."
 msgstr ""
 "«Restablecer al del router»: descarta los cambios de este navegador y sigue "
 "al router."
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:365
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:376
 msgctxt "footstrap"
 msgid "Rounding"
 msgstr "Redondeo"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:538
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:549
 msgctxt "footstrap"
 msgid "Save to router"
 msgstr "Guardar en el router"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:633
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:644
 msgctxt "footstrap"
 msgid ""
 "Save to router — store this look on the router. Browsers with a look of "
@@ -423,17 +434,17 @@ msgstr ""
 "«Guardar en el router»: guarda este aspecto en el router. Los navegadores "
 "con un aspecto propio lo conservan."
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:564
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:575
 msgctxt "footstrap"
 msgid "Saved to router"
 msgstr "Guardado en el router"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:628
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:639
 msgctxt "footstrap"
 msgid "Saving"
 msgstr "Guardado"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:396
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:407
 msgctxt "footstrap"
 msgid "Scale"
 msgstr "Escala"
@@ -458,7 +469,7 @@ msgctxt "footstrap"
 msgid "Sidebar"
 msgstr "Barra lateral"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:528
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:539
 msgctxt "footstrap"
 msgid "Sidebar and bar"
 msgstr "Barra lateral y superior"
@@ -476,7 +487,7 @@ msgstr "Empiece a escribir para encontrar una página"
 msgid "Storage"
 msgstr "Almacenamiento"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:397
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:408
 msgctxt "footstrap"
 msgid "Strength"
 msgstr "Intensidad"
@@ -486,7 +497,7 @@ msgctxt "footstrap"
 msgid "Submenus"
 msgstr "Submenús"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:524
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:535
 msgctxt "footstrap"
 msgid "Surfaces"
 msgstr "Superficies"
@@ -503,11 +514,21 @@ msgstr "Sistema"
 msgid "System running in recovery (initramfs) mode."
 msgstr "El sistema se está ejecutando en modo de recuperación (initramfs)."
 
-#: htdocs/luci-static/resources/fs-select.js:440
+#: htdocs/luci-static/resources/fs-select.js:497
 msgid "Table"
 msgstr "Tabla"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:356
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:359
+msgctxt "footstrap"
+msgid "Table"
+msgstr "Tabla"
+
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:357
+msgctxt "footstrap"
+msgid "Tables"
+msgstr "Tablas"
+
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:367
 msgctxt "footstrap"
 msgid "Text size"
 msgstr "Tamaño del texto"
@@ -563,7 +584,7 @@ msgctxt "footstrap"
 msgid "The system asks for more contrast, so surfaces stay solid."
 msgstr "El sistema pide más contraste, así que las superficies siguen opacas."
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:399
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:410
 msgctxt "footstrap"
 msgid "Theme"
 msgstr "Tema"
@@ -576,7 +597,7 @@ msgstr ""
 "Este enrutador no tiene contraseña. Configure una contraseña de "
 "administrador para proteger la interfaz web."
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:559
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:570
 msgctxt "footstrap"
 msgid ""
 "This browser is not storing preferences (site data is blocked), so a change "
@@ -587,17 +608,17 @@ msgstr ""
 "bloqueados), así que un cambio aquí dura hasta que recargues. Guardar en el "
 "router sigue funcionando y se aplica a todos los navegadores."
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:624
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:635
 msgctxt "footstrap"
 msgid "This theme is not translated on this router yet."
 msgstr "Este tema aún no está traducido en este router."
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:491
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:502
 msgctxt "footstrap"
 msgid "Tint"
 msgstr "Tinte"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:498
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:509
 msgctxt "footstrap"
 msgid "Tint strength"
 msgstr "Intensidad del tinte"
@@ -616,7 +637,7 @@ msgstr "Arriba"
 msgid "Total Available"
 msgstr "Total disponible"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:473
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:484
 msgctxt "footstrap"
 msgid "Transparency"
 msgstr "Transparencia"
@@ -626,7 +647,7 @@ msgctxt "footstrap"
 msgid "Upload failed."
 msgstr "Error al cargar el archivo."
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:444
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:455
 msgctxt "footstrap"
 msgid "Uploading…"
 msgstr "Cargando…"
@@ -640,12 +661,12 @@ msgstr "Usar los de la paleta"
 msgid "Username"
 msgstr "Nombre de usuario"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:503
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:514
 msgctxt "footstrap"
 msgid "Wallpaper"
 msgstr "Fondo de pantalla"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:520
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:531
 msgctxt "footstrap"
 msgid "Warning"
 msgstr "Advertencia"
@@ -662,7 +683,7 @@ msgid "Your own surface colours on the Colours tab override the palette."
 msgstr ""
 "Sus propios colores de superficie en la pestaña Colores anulan la paleta."
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:528
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:539
 msgctxt "footstrap"
 msgid "in the sidebar"
 msgstr "en la barra lateral"
@@ -672,12 +693,12 @@ msgctxt "footstrap"
 msgid "on a card"
 msgstr "en una tarjeta"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:527
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:538
 msgctxt "footstrap"
 msgid "on a control"
 msgstr "en un control"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:492
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:503
 msgctxt "footstrap"
 msgid "on the canvas"
 msgstr "en el lienzo"
