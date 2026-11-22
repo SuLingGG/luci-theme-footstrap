@@ -335,10 +335,18 @@ function markTokenCells(t) {
 const OPEN_LIST = '.cbi-dropdown[open]';
 
 /* The Tables axis (Appearance -> Interface) pins what the ladder below would otherwise decide.
- * `card` cards every data table; `table` keeps the table and lets it scroll sideways, which is the
- * .fs-xscroll treatment a header-less table already gets. `auto` is the measurement. Read from the
- * attribute head.ut pre-paints, so the first pass after a reload agrees with the first frame. */
+ * `card` cards every data table; `table` keeps the table and lets it scroll sideways. `auto` is the
+ * measurement. Read from the attribute head.ut pre-paints, so the first pass after a reload agrees
+ * with the first frame.
+ *
+ * The pin is for narrow screens only. A desktop has room for the table, so "Cards" there would card
+ * a table that fits — the axis answers "what should a phone do", not "always". 767px is the theme's
+ * own mobile breakpoint (styles/theme/*.css); fs-fit re-runs every fitter when the viewport width
+ * moves, so crossing it re-decides without a reload. */
+const NARROW = window.matchMedia('(max-width: 767px)');
+
 const tableMode = () => {
+	if (!NARROW.matches) return 'auto';
 	const v = document.documentElement.getAttribute('data-tables');
 	return (v === 'table' || v === 'card') ? v : 'auto';
 };

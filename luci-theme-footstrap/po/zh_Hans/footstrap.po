@@ -11,12 +11,12 @@ msgctxt "footstrap"
 msgid "Accent"
 msgstr "强调色"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:494
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:493
 msgctxt "footstrap"
 msgid "Acrylic"
 msgstr "亚克力"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:411
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:410
 msgctxt "footstrap"
 msgid "As in file"
 msgstr "按文件原色"
@@ -26,24 +26,17 @@ msgid "Authorization Required"
 msgstr "需要授权"
 
 #: htdocs/luci-static/resources/view/footstrap/appearance.js:312
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:358
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:357
 msgctxt "footstrap"
 msgid "Auto"
 msgstr "自动"
-
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:362
-msgctxt "footstrap"
-msgid ""
-"Auto turns a table into cards when it does not fit. Table keeps it and "
-"scrolls sideways."
-msgstr "自动：表格放不下时变为卡片。表格：保留表格并允许横向滚动。"
 
 #: htdocs/luci-static/resources/view/footstrap/appearance.js:345
 msgctxt "footstrap"
 msgid "Auto-collapse"
 msgstr "自动收起"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:500
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:499
 msgctxt "footstrap"
 msgid "Background"
 msgstr "背景"
@@ -53,12 +46,12 @@ msgctxt "footstrap"
 msgid "Barely visible %s"
 msgstr "%s几乎不可见"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:496
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:495
 msgctxt "footstrap"
 msgid "Blur"
 msgstr "模糊"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:540
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:539
 msgctxt "footstrap"
 msgid "Borders"
 msgstr "边框"
@@ -71,23 +64,23 @@ msgstr "已缓冲"
 msgid "Cached"
 msgstr "已缓存"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:485
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:484
 msgctxt "footstrap"
 msgid "Card opacity"
 msgstr "卡片不透明度"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:360
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:537
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:359
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:536
 msgctxt "footstrap"
 msgid "Cards"
 msgstr "卡片"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:397
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:396
 msgctxt "footstrap"
 msgid "Choose SVG"
 msgstr "选择 SVG"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:390
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:389
 msgctxt "footstrap"
 msgid "Choose image"
 msgstr "选择图片"
@@ -109,13 +102,13 @@ msgctxt "footstrap"
 msgid "Colour scheme"
 msgstr "配色方案"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:409
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:661
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:408
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:660
 msgctxt "footstrap"
 msgid "Colours"
 msgstr "颜色"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:504
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:503
 msgctxt "footstrap"
 msgid "Colours the page so you can tell routers apart."
 msgstr "为页面着色，便于区分不同路由器。"
@@ -125,12 +118,12 @@ msgctxt "footstrap"
 msgid "Compact"
 msgstr "紧凑"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:612
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:611
 msgctxt "footstrap"
 msgid "Confirm reset"
 msgstr "确认重置"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:373
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:372
 msgctxt "footstrap"
 msgid "Content width"
 msgstr "内容宽度"
@@ -140,7 +133,7 @@ msgctxt "footstrap"
 msgid "Contrast %s:1 (WCAG AA wants %s:1 here)"
 msgstr "对比度 %s:1（WCAG AA 要求此处为 %s:1）"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:538
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:537
 msgctxt "footstrap"
 msgid "Controls"
 msgstr "控件"
@@ -150,12 +143,12 @@ msgctxt "footstrap"
 msgid "Could not process the image."
 msgstr "无法处理该图像。"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:586
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:585
 msgctxt "footstrap"
 msgid "Could not save to the router. Reload the page and try again."
 msgstr "无法保存到路由器。请刷新页面后重试。"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:532
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:531
 msgctxt "footstrap"
 msgid "Danger"
 msgstr "危险"
@@ -170,7 +163,7 @@ msgctxt "footstrap"
 msgid "Density"
 msgstr "密度"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:419
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:418
 msgctxt "footstrap"
 msgid "Dim"
 msgstr "变暗"
@@ -179,13 +172,13 @@ msgstr "变暗"
 msgid "Expand menu"
 msgstr "展开菜单"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:416
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:517
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:415
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:516
 msgctxt "footstrap"
 msgid "File"
 msgstr "文件"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:492
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:491
 msgctxt "footstrap"
 msgid "Flat"
 msgstr "扁平"
@@ -199,7 +192,7 @@ msgctxt "footstrap"
 msgid "Footstrap needs OpenWrt 24.10.3 or newer."
 msgstr "Footstrap 需要 OpenWrt 24.10.3 或更高版本。"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:640
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:639
 msgctxt "footstrap"
 msgid ""
 "Footstrap theme settings apply at once and are stored permanently in this "
@@ -213,7 +206,7 @@ msgid ""
 msgstr ""
 "保存到路由器的 Footstrap 主题设置、登录背景和图案上传、Footstrap 设置页"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:493
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:492
 msgctxt "footstrap"
 msgid "Frosted"
 msgstr "磨砂"
@@ -226,7 +219,7 @@ msgstr "转到固件升级…"
 msgid "Go to password configuration..."
 msgstr "转到密码配置…"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:530
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:529
 msgctxt "footstrap"
 msgid "Good"
 msgstr "良好"
@@ -260,7 +253,7 @@ msgid "Large"
 msgstr "大"
 
 #: htdocs/luci-static/resources/view/footstrap/appearance.js:335
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:633
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:632
 msgctxt "footstrap"
 msgid "Layout"
 msgstr "布局"
@@ -283,7 +276,7 @@ msgstr "退出"
 msgid "Lua compatibility mode active"
 msgstr "Lua 兼容模式激活"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:491
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:490
 msgctxt "footstrap"
 msgid "Material"
 msgstr "材质"
@@ -297,7 +290,7 @@ msgstr "内存"
 msgid "Menu"
 msgstr "菜单"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:489
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:488
 msgctxt "footstrap"
 msgid "Menu opacity"
 msgstr "菜单不透明度"
@@ -306,6 +299,11 @@ msgstr "菜单不透明度"
 msgctxt "footstrap"
 msgid "Mode"
 msgstr "模式"
+
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:356
+msgctxt "footstrap"
+msgid "Narrow screens"
+msgstr "窄屏显示"
 
 #: ucode/template/themes/footstrap/header.ut:203
 msgid ""
@@ -328,10 +326,17 @@ msgctxt "footstrap"
 msgid "Normal"
 msgstr "标准"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:515
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:514
 msgctxt "footstrap"
 msgid "Off"
 msgstr "关闭"
+
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:361
+msgctxt "footstrap"
+msgid ""
+"Only below 768px: Auto measures, Table keeps the table and scrolls sideways, "
+"Cards always cards it. Wider screens show the table."
+msgstr "仅在 768px 以下的窄屏生效：自动按测量结果，表格保留表格并横向滚动，卡片一律显示为卡片。更宽的屏幕始终显示表格。"
 
 #: htdocs/luci-static/resources/fs-search.js:147
 msgctxt "footstrap"
@@ -348,8 +353,8 @@ msgstr "调色板"
 msgid "Password"
 msgstr "密码"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:404
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:516
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:403
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:515
 msgctxt "footstrap"
 msgid "Pattern"
 msgstr "图案"
@@ -369,42 +374,42 @@ msgctxt "footstrap"
 msgid "Recently visited"
 msgstr "最近访问"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:385
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:384
 msgctxt "footstrap"
 msgid "Remove"
 msgstr "删除"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:551
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:550
 msgctxt "footstrap"
 msgid "Reset to built-in"
 msgstr "重置为内置设置"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:646
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:645
 msgctxt "footstrap"
 msgid "Reset to built-in — go back to the look the theme ships with."
 msgstr "重置为内置设置——恢复主题自带的外观。"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:550
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:549
 msgctxt "footstrap"
 msgid "Reset to router"
 msgstr "重置为路由器设置"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:645
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:644
 msgctxt "footstrap"
 msgid "Reset to router — drop this browser's changes and follow the router."
 msgstr "重置为路由器设置——放弃此浏览器的更改，跟随路由器的设置。"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:376
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:375
 msgctxt "footstrap"
 msgid "Rounding"
 msgstr "圆角"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:549
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:548
 msgctxt "footstrap"
 msgid "Save to router"
 msgstr "保存到路由器"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:644
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:643
 msgctxt "footstrap"
 msgid ""
 "Save to router — store this look on the router. Browsers with a look of "
@@ -412,17 +417,17 @@ msgid ""
 msgstr ""
 "保存到路由器——将此外观保存到路由器。已自定义外观的浏览器会保留自己的设置。"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:575
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:574
 msgctxt "footstrap"
 msgid "Saved to router"
 msgstr "已保存到路由器"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:639
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:638
 msgctxt "footstrap"
 msgid "Saving"
 msgstr "正在保存"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:407
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:406
 msgctxt "footstrap"
 msgid "Scale"
 msgstr "缩放"
@@ -447,7 +452,7 @@ msgctxt "footstrap"
 msgid "Sidebar"
 msgstr "侧边栏"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:539
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:538
 msgctxt "footstrap"
 msgid "Sidebar and bar"
 msgstr "侧边栏和顶栏"
@@ -465,7 +470,7 @@ msgstr "开始输入以查找页面"
 msgid "Storage"
 msgstr "存储"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:408
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:407
 msgctxt "footstrap"
 msgid "Strength"
 msgstr "强度"
@@ -475,7 +480,7 @@ msgctxt "footstrap"
 msgid "Submenus"
 msgstr "子菜单"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:535
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:534
 msgctxt "footstrap"
 msgid "Surfaces"
 msgstr "表面"
@@ -492,21 +497,16 @@ msgstr "系统"
 msgid "System running in recovery (initramfs) mode."
 msgstr "系统在恢复（initramfs）模式下运行。"
 
-#: htdocs/luci-static/resources/fs-select.js:497
+#: htdocs/luci-static/resources/fs-select.js:505
 msgid "Table"
 msgstr "路由表"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:359
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:358
 msgctxt "footstrap"
 msgid "Table"
 msgstr "表格"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:357
-msgctxt "footstrap"
-msgid "Tables"
-msgstr "表格显示"
-
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:367
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:366
 msgctxt "footstrap"
 msgid "Text size"
 msgstr "文字大小"
@@ -561,7 +561,7 @@ msgctxt "footstrap"
 msgid "The system asks for more contrast, so surfaces stay solid."
 msgstr "系统要求更高的对比度，因此表面保持不透明。"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:410
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:409
 msgctxt "footstrap"
 msgid "Theme"
 msgstr "主题色"
@@ -572,7 +572,7 @@ msgid ""
 "protect the web interface."
 msgstr "尚未设置密码。请设置管理员密码以保护此设备。"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:570
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:569
 msgctxt "footstrap"
 msgid ""
 "This browser is not storing preferences (site data is blocked), so a change "
@@ -582,17 +582,17 @@ msgstr ""
 "此浏览器未保存偏好设置（站点数据被阻止），因此此处的更改在重新加载前有效。保"
 "存到路由器仍然有效，并会应用到所有浏览器。"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:635
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:634
 msgctxt "footstrap"
 msgid "This theme is not translated on this router yet."
 msgstr "此路由器尚未安装该主题的翻译。"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:502
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:501
 msgctxt "footstrap"
 msgid "Tint"
 msgstr "色调"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:509
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:508
 msgctxt "footstrap"
 msgid "Tint strength"
 msgstr "色调强度"
@@ -611,7 +611,7 @@ msgstr "顶部"
 msgid "Total Available"
 msgstr "可用总数"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:484
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:483
 msgctxt "footstrap"
 msgid "Transparency"
 msgstr "透明度"
@@ -621,7 +621,7 @@ msgctxt "footstrap"
 msgid "Upload failed."
 msgstr "上传失败。"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:455
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:454
 msgctxt "footstrap"
 msgid "Uploading…"
 msgstr "正在上传…"
@@ -635,12 +635,12 @@ msgstr "使用调色板的颜色"
 msgid "Username"
 msgstr "用户名"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:514
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:513
 msgctxt "footstrap"
 msgid "Wallpaper"
 msgstr "壁纸"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:531
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:530
 msgctxt "footstrap"
 msgid "Warning"
 msgstr "警告"
@@ -655,7 +655,7 @@ msgctxt "footstrap"
 msgid "Your own surface colours on the Colours tab override the palette."
 msgstr "你在“颜色”选项卡中设置的表面颜色会覆盖调色板。"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:539
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:538
 msgctxt "footstrap"
 msgid "in the sidebar"
 msgstr "在侧边栏中"
@@ -665,12 +665,12 @@ msgctxt "footstrap"
 msgid "on a card"
 msgstr "在卡片上"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:538
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:537
 msgctxt "footstrap"
 msgid "on a control"
 msgstr "在控件上"
 
-#: htdocs/luci-static/resources/view/footstrap/appearance.js:503
+#: htdocs/luci-static/resources/view/footstrap/appearance.js:502
 msgctxt "footstrap"
 msgid "on the canvas"
 msgstr "在画布上"

@@ -2,7 +2,7 @@
 
 ### Added
 
-- **Appearance > Interface has a Tables axis: Auto, Table or Cards.** Auto keeps the measurement that turns a table into cards when it does not fit. Table keeps the table and lets it scroll sideways, and Cards pins the cards. The axis exists because the measurement decides per table, so one page could show both forms at once.
+- **Appearance > Interface has a Narrow screens axis: Auto, Table or Cards.** It answers what a data table does on a narrow screen, below the theme's 767px breakpoint. Auto keeps the measurement that turns a table into cards when it does not fit; Table keeps the table and lets it scroll sideways; Cards pins the cards. Wider screens always keep the table — they have the room for it, and a card that fits reads as a bug. The axis exists because the measurement decides per table, so one page could show both forms at once.
 
 ### Fixed
 

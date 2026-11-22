@@ -351,15 +351,14 @@ function build() {
 			[ 'large',   _('Large', 'footstrap') ]
 		], bump(axes.density.apply), label)),
 
-		/* Whether a data table that does not fit becomes cards. Auto is the measurement; the two
-		 * pinned values exist because a page can end up with both forms at once, which reads as a
-		 * bug. `table` scrolls sideways instead of carding. */
-		group(_('Tables', 'footstrap'), (label) => segCtl(axes.tables.current(), [
+		/* What a data table that does not fit does on a narrow screen. Wide screens always keep the
+		 * table — they have the room — so the two pinned values are a phone answer, not a global one. */
+		group(_('Narrow screens', 'footstrap'), (label) => segCtl(axes.tables.current(), [
 			[ 'auto',  _('Auto', 'footstrap') ],
 			[ 'table', _('Table', 'footstrap') ],
 			[ 'card',  _('Cards', 'footstrap') ]
 		], bump(axes.tables.apply), label), {
-			desc: _('Auto turns a table into cards when it does not fit. Table keeps it and scrolls sideways.', 'footstrap')
+			desc: _('Only below 768px: Auto measures, Table keeps the table and scrolls sideways, Cards always cards it. Wider screens show the table.', 'footstrap')
 		}),
 
 		/* a share of the browser's own font size; `live: false` because the page grows under the
