@@ -1,4 +1,4 @@
-## [Unreleased]
+## [0.14.23] — 2026-11-22
 
 ### Added
 
@@ -4868,6 +4868,7 @@ line, not one per tag. The individual patch releases are in the git history.
   nested `calc()`, which broke the layout outright. JS minification came back in 0.7.12,
   once jsmin was proven safe by a token-equivalence gate.
 
+[0.14.23]: https://github.com/SuLingGG/luci-theme-footstrap/compare/v0.14.22...v0.14.23
 [0.14.22]: https://github.com/SuLingGG/luci-theme-footstrap/compare/v0.14.21...v0.14.22
 [0.14.21]: https://github.com/VizzleTF/luci-theme-footstrap/compare/v0.14.20...v0.14.21
 [0.14.20]: https://github.com/VizzleTF/luci-theme-footstrap/compare/v0.14.19...v0.14.20
