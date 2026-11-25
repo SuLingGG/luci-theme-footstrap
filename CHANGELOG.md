@@ -1,3 +1,9 @@
+## [0.14.25] — 2026-11-22
+
+### Added
+
+- **Appearance > Interface has the Narrow screens axis back: Auto, Table or Cards.** 0.14.24 removed it on the assumption that appdpi's own sideways scroll made cards impossible. It does not: a table narrow enough not to overflow gets no scrollbar at all, so the measurement still cards it, and a phone ends up showing a carded table that it could have read as a table. Below the theme's 767px breakpoint the axis pins the answer again — Auto measures, Table keeps the table and scrolls it sideways only when it overflows, Cards always cards it — while wider screens keep the table, which is what they have room for.
+
 ## [0.14.24] — 2026-11-22
 
 ### Changed
@@ -4878,6 +4884,7 @@ line, not one per tag. The individual patch releases are in the git history.
   nested `calc()`, which broke the layout outright. JS minification came back in 0.7.12,
   once jsmin was proven safe by a token-equivalence gate.
 
+[0.14.25]: https://github.com/SuLingGG/luci-theme-footstrap/compare/v0.14.24...v0.14.25
 [0.14.24]: https://github.com/SuLingGG/luci-theme-footstrap/compare/v0.14.23...v0.14.24
 [0.14.23]: https://github.com/SuLingGG/luci-theme-footstrap/compare/v0.14.22...v0.14.23
 [0.14.22]: https://github.com/SuLingGG/luci-theme-footstrap/compare/v0.14.21...v0.14.22
